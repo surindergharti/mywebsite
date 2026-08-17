@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surinder Gharti | Portfolio & Digital Card</title>
+    <title>Surinder Gharti | Professional Hospitality Portfolio</title>
     <!-- Google Fonts & FontAwesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,7 @@
             --accent-coral: #ff5757;
             --text-dark: #1e2530;
             --text-muted: #6c757d;
+            --card-bg: #f8fafc;
             --font: 'Poppins', sans-serif;
         }
 
@@ -36,7 +37,7 @@
             overflow-x: hidden;
         }
 
-        /* Top Navigation Bar */
+        /* Navigation Bar */
         header {
             display: flex;
             justify-content: space-between;
@@ -76,7 +77,6 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
             padding: 0.2rem 0;
         }
 
@@ -92,27 +92,32 @@
             margin: auto;
             padding: 1rem 2rem 4rem;
             position: relative;
+            flex-direction: column;
         }
 
         .tab-content.active {
             display: flex;
         }
 
-        /* TAB 1: HERO SECTION LAYOUT */
+        /* TAB 1: HERO & RESUME SECTION */
         #home-tab {
+            min-height: 75vh;
+        }
+
+        .hero-container {
+            display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 75vh;
             position: relative;
+            margin-bottom: 4rem;
         }
 
         .hero-text {
             flex: 1;
-            max-width: 550px;
+            max-width: 580px;
             z-index: 2;
         }
 
-        /* Speech Bubble "It's me" */
         .speech-badge {
             display: inline-block;
             background-color: var(--blue-block);
@@ -138,18 +143,18 @@
         }
 
         .hero-text h1 {
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--text-dark);
         }
 
         .hero-text h2 {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 500;
             color: var(--text-muted);
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem;
             line-height: 1.4;
         }
 
@@ -163,6 +168,20 @@
             font-weight: 600;
         }
 
+        .summary-paragraph {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.8rem;
+        }
+
+        .cta-group {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.8rem;
+        }
+
         .cta-btn {
             display: inline-block;
             background-color: var(--accent-coral);
@@ -174,7 +193,6 @@
             font-size: 0.95rem;
             box-shadow: 0 8px 20px rgba(255, 87, 87, 0.3);
             transition: all 0.3s ease;
-            margin-bottom: 2rem;
         }
 
         .cta-btn:hover {
@@ -182,7 +200,6 @@
             box-shadow: 0 12px 25px rgba(255, 87, 87, 0.4);
         }
 
-        /* Social Links */
         .social-links {
             display: flex;
             gap: 1.2rem;
@@ -199,21 +216,20 @@
             color: var(--accent-coral);
         }
 
-        /* Hero Image & Blue Background Block */
+        /* Hero Image Container */
         .hero-image-container {
             flex: 1;
             display: flex;
             justify-content: flex-end;
             align-items: center;
             position: relative;
-            height: 100%;
         }
 
         .blue-bg-block {
             position: absolute;
             right: -100px;
             top: -120px;
-            width: 50vw;
+            width: 45vw;
             height: 120%;
             background-color: var(--blue-block);
             z-index: 1;
@@ -222,41 +238,126 @@
         .hero-portrait {
             position: relative;
             z-index: 2;
-            max-width: 440px;
+            max-width: 420px;
             width: 100%;
             border-radius: 12px;
             object-fit: cover;
+            object-position: top center;
         }
 
-        /* Floating Skills / Highlights Bar */
-        .skills-bar {
+        /* SECTION TITLES */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 3rem 0 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
             position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1000px;
-            background: #ffffff;
-            border-radius: 50px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 1.2rem 2rem;
-            z-index: 5;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-coral);
         }
 
-        .skill-item {
+        /* EXPERIENCE & EDUCATION CARDS */
+        .experience-grid, .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.8rem;
+            border: 1px solid #eef2f6;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .card-subtitle {
+            color: var(--accent-coral);
             font-weight: 600;
-            color: #8a94a6;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-date {
+            background-color: #e2e8f0;
+            color: var(--text-dark);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .card-list {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .card-list li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-list li::before {
+            content: "•";
+            color: var(--accent-coral);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* SKILLS BADGES */
+        .skills-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-badge {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            color: var(--text-dark);
+            padding: 0.6rem 1.1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
-        .skill-item i {
-            color: var(--accent-coral);
+        .skill-badge i {
+            color: var(--blue-block);
         }
 
         /* TAB 2: DIGITAL BUSINESS CARD */
@@ -271,12 +372,10 @@
             border-radius: 20px;
             padding: 3rem 2.5rem;
             width: 100%;
-            max-width: 450px;
+            max-width: 460px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
             text-align: center;
             border-top: 5px solid var(--accent-coral);
-            position: relative;
-            z-index: 2;
         }
 
         .vcard-avatar {
@@ -369,13 +468,13 @@
             box-shadow: 0 12px 25px rgba(255, 87, 87, 0.4);
         }
 
-        /* Responsive Layout */
+        /* Mobile Layout */
         @media (max-width: 900px) {
             header {
                 padding: 1.2rem 1.5rem;
             }
 
-            #home-tab {
+            .hero-container {
                 flex-direction: column;
                 text-align: center;
                 gap: 2.5rem;
@@ -390,24 +489,16 @@
                 font-size: 2.8rem;
             }
 
+            .cta-group {
+                justify-content: center;
+            }
+
             .social-links {
                 justify-content: center;
             }
 
             .blue-bg-block {
                 display: none;
-            }
-
-            .skills-bar {
-                position: relative;
-                bottom: 0;
-                left: 0;
-                transform: none;
-                width: 100%;
-                flex-wrap: wrap;
-                gap: 1rem;
-                border-radius: 20px;
-                margin-top: 2rem;
             }
         }
     </style>
@@ -423,36 +514,98 @@
         </nav>
     </header>
 
-    <!-- TAB 1: PORTFOLIO HERO -->
+    <!-- TAB 1: HERO & RESUME SECTION -->
     <div id="home-tab" class="tab-content active">
-        <div class="hero-text">
-            <div class="speech-badge">It's me</div>
-            <h1>Surinder Gharti</h1>
-            <h2>
-                Bachelor of Hotel Management (BHM) & <br>
-                <span class="highlight-red">Hospitality Professional</span> at <span class="highlight-blue">Kempinski UAE</span>
-            </h2>
-            <a href="mailto:ghartisurendra51@gmail.com" class="cta-btn">Hire Me</a>
+        <!-- Hero Banner -->
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="speech-badge">It's me</div>
+                <h1>Surinder Gharti</h1>
+                <h2>
+                    In-Room Dining Professional & <br>
+                    <span class="highlight-red">Hospitality Specialist</span> at <span class="highlight-blue">Kempinski UAE</span>
+                </h2>
+                <p class="summary-paragraph">
+                    Passionate hospitality professional with 2 years of experience delivering exceptional, personalized guest service in high-standard in-room dining. Recognized for proactive preferences anticipation, Forbes SOP compliance, and de-escalating complex guest issues into loyal experiences.
+                </p>
+                <div class="cta-group">
+                    <a href="mailto:ghartisurendra51@gmail.com" class="cta-btn">Hire Me</a>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/surindergharti" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:ghartisurendra51@gmail.com" class="social-icon" title="Email"><i class="far fa-envelope"></i></a>
+                        <a href="tel:+971502435492" class="social-icon" title="Phone"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
 
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/surindergharti/" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.instagram.com" target="_blank" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:ghartisurendra51@gmail.com" class="social-icon" title="Email"><i class="far fa-envelope"></i></a>
-                <a href="tel:+971000000000" class="social-icon" title="Phone"><i class="fas fa-phone"></i></a>
+            <div class="hero-image-container">
+                <div class="blue-bg-block"></div>
+                <img src="sgpp.jpg" alt="Surinder Gharti" class="hero-portrait">
             </div>
         </div>
 
-        <div class="hero-image-container">
-            <div class="blue-bg-block"></div>
-            <img src="sgpp.jpg" alt="Surinder Gharti" class="hero-portrait">
+        <!-- Experience Section -->
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-grid">
+            <div class="info-card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">In-Room Dining Waiter</div>
+                        <div class="card-subtitle">Kempinski Hotel Mall of the Emirates</div>
+                    </div>
+                    <span class="card-date">May 2025 - Present</span>
+                </div>
+                <ul class="card-list">
+                    <li>Delivered personalized service to top VIP guests in a luxury 5-star environment.</li>
+                    <li>De-escalated complex guest complaints swiftly during peak operations.</li>
+                    <li>Maintained strict Forbes Travel Guide luxury standards and Kempinski SOPs.</li>
+                    <li>Managed minibar inventory control, shift closing reports, and Oracle system processing.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Food & Beverage Intern</div>
+                        <div class="card-subtitle">Kempinski Hotel Mall of the Emirates</div>
+                    </div>
+                    <span class="card-date">May 2024 - May 2025</span>
+                </div>
+                <ul class="card-list">
+                    <li>Acquired foundational knowledge of luxury service sequences and table setups.</li>
+                    <li>Supported high-volume restaurant and banquet operations during peak hours.</li>
+                    <li>Developed strong multitasking skills while maintaining HACCP food safety standards.</li>
+                </ul>
+            </div>
         </div>
 
-        <!-- Bottom Floating Skills Bar -->
-        <div class="skills-bar">
-            <div class="skill-item"><i class="fas fa-concierge-bell"></i> Luxury F&B Operations</div>
-            <div class="skill-item"><i class="fas fa-star"></i> Guest Satisfaction</div>
-            <div class="skill-item"><i class="fas fa-graduation-cap"></i> BHM Scholar</div>
-            <div class="skill-item"><i class="fas fa-hotel"></i> Kempinski Hotels</div>
+        <!-- Education & Skills -->
+        <h2 class="section-title">Education & Skills</h2>
+        <div class="experience-grid">
+            <div class="info-card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Bachelor of Hotel Management</div>
+                        <div class="card-subtitle">Golden Gate International College</div>
+                    </div>
+                    <span class="card-date">Graduated 2025</span>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                    Specialized in Food & Beverage Management, Luxury Operational Standards, and Hospitality Service Excellence.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="card-title" style="margin-bottom: 1rem;">Core Competencies</div>
+                <div class="skills-badges">
+                    <span class="skill-badge"><i class="fas fa-check-circle"></i> Conflict Resolution</span>
+                    <span class="skill-badge"><i class="fas fa-check-circle"></i> Forbes Standards (SOPs)</span>
+                    <span class="skill-badge"><i class="fas fa-check-circle"></i> Order Accuracy</span>
+                    <span class="skill-badge"><i class="fas fa-check-circle"></i> HACCP Compliance</span>
+                    <span class="skill-badge"><i class="fas fa-check-circle"></i> Oracle System</span>
+                    <span class="skill-badge"><i class="fas fa-check-circle"></i> Personalised Service</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -461,21 +614,21 @@
         <div class="vcard-container">
             <img src="sgpp.jpg" alt="Surinder Gharti" class="vcard-avatar">
             <h2 class="vcard-name">Surinder Gharti</h2>
-            <p class="vcard-title">F&B Department | Kempinski UAE</p>
+            <p class="vcard-title">In-Room Dining Waiter | Kempinski UAE</p>
 
             <div class="vcard-details">
                 <div class="vcard-field">
-                    <i class="fas fa-user-tag"></i>
+                    <i class="fas fa-map-marker-alt"></i>
                     <div>
-                        <span>Designation</span>
-                        <p>F&B Associate / BHM Student</p>
+                        <span>Location</span>
+                        <p>Dubai, UAE (Nepalese National)</p>
                     </div>
                 </div>
                 <div class="vcard-field">
-                    <i class="fas fa-building"></i>
+                    <i class="fas fa-phone"></i>
                     <div>
-                        <span>Organization</span>
-                        <p>Kempinski UAE</p>
+                        <span>Phone</span>
+                        <a href="tel:+971502435492">+971 50 243 5492</a>
                     </div>
                 </div>
                 <div class="vcard-field">
@@ -483,6 +636,13 @@
                     <div>
                         <span>Email Address</span>
                         <a href="mailto:ghartisurendra51@gmail.com">ghartisurendra51@gmail.com</a>
+                    </div>
+                </div>
+                <div class="vcard-field">
+                    <i class="fas fa-language"></i>
+                    <div>
+                        <span>Languages</span>
+                        <p>English, Nepali, Hindi</p>
                     </div>
                 </div>
                 <div class="vcard-field">
@@ -502,7 +662,7 @@
     </div>
 
     <script>
-        // Tab Switcher Script
+        // Tab Switcher
         function switchTab(tabId, element) {
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
@@ -515,16 +675,18 @@
             element.classList.add('active');
         }
 
-        // vCard generator script
+        // vCard generator
         function downloadVCard() {
             const vCardData = 
 `BEGIN:VCARD
 VERSION:3.0
 N:Gharti;Surinder;;;
 FN:Surinder Gharti
-ORG:Kempinski UAE
-TITLE:F&B Department - Hospitality (BHM Student)
+ORG:Kempinski Hotel Mall of the Emirates
+TITLE:In-Room Dining Waiter
+TEL;TYPE=CELL:+971502435492
 EMAIL;TYPE=INTERNET,HOME:ghartisurendra51@gmail.com
+URL:https://www.linkedin.com/in/surindergharti
 END:VCARD`;
 
             const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8;' });
