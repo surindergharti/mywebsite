@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surinder Gharti | Portfolio & Digital Card</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sub: #b3b3b3;
+            --accent-pink: #d946ef; /* Bright neon magenta/pink */
+            --accent-glow: rgba(217, 70, 239, 0.4);
+            --font: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Navigation Bar with Tabs */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #000;
+            padding: 1rem;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            font-family: var(--font);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            background-color: var(--card-bg);
+            color: var(--accent-pink);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        /* Views management */
+        .tab-content {
+            display: none;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .tab-content.active {
+            display: flex;
+        }
+
+        /* TAB 1: HERO SECTION LAYOUT */
+        #home-tab {
+            align-items: center;
+            justify-content: space-between;
+            min-height: 80vh;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-text h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h2 span {
+            color: var(--accent-pink);
+        }
+
+        .hero-text p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* Social Icons */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border: 2px solid var(--accent-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-pink);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-pink);
+            color: #fff;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Circular Image Frame with Glow */
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle-glow-frame {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            padding: 8px;
+            border: 3px solid var(--accent-pink);
+            box-shadow: 0 0 35px var(--accent-glow);
+            overflow: hidden;
+            background: #000;
+        }
+
+        .circle-glow-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* TAB 2: DIGITAL BUSINESS CARD SECTION */
+        #contact-tab {
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .vcard-container {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-top: 4px solid var(--accent-pink);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .vcard-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            border: 2px solid var(--accent-pink);
+            box-shadow: 0 0 15px var(--accent-glow);
+            object-fit: cover;
+        }
+
+        .vcard-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .vcard-title {
+            color: var(--accent-pink);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .vcard-details {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .vcard-field {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .vcard-field:last-child {
+            border-bottom: none;
+        }
+
+        .vcard-field i {
+            color: var(--accent-pink);
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .vcard-field div span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-sub);
+        }
+
+        .vcard-field div a, .vcard-field div p {
+            color: var(--text-main);
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin: 0;
+        }
+
+        .vcard-field div a:hover {
+            color: var(--accent-pink);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            background-color: var(--accent-pink);
+            color: #fff;
+            border: none;
+            padding: 0.85rem;
+            border-radius: 8px;
+            font-family: var(--font);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background-color: #c026d3;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 850px) {
+            #home-tab {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .circle-glow-frame {
+                width: 260px;
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Tabs -->
+    <nav>
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('home-tab', this)">Surinder Gharti</button>
+            <button class="tab-btn" onclick="switchTab('contact-tab', this)">Contacts</button>
+        </div>
+    </nav>
+
+    <!-- TAB 1: PORTFOLIO HERO -->
+    <div id="home-tab" class="tab-content active">
+        <div class="hero-text">
+            <h3>Hello, I'm</h3>
+            <h1>Surinder Gharti</h1>
+            <h2>BHM Student & <span>Hospitality Professional</span></h2>
+            <p>
+                Currently pursuing Bachelor of Hotel Management (BHM) and working in the Food & Beverage (F&B) Department at Kempinski UAE.
+                <br><br>
+                Passionate about delivering exceptional luxury service standards, guest satisfaction, and continuous professional growth in world-class hospitality settings.
+            </p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com" target="_blank" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:gharti7152914@gmail.com" class="social-icon" title="Email"><i class="far fa-envelope"></i></a>
+                <a href="tel:+971000000000" class="social-icon" title="Phone"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+
+        <div class="hero-image-container">
+            <div class="circle-glow-frame">
+                <img src="sgpp.png" alt="Surinder Gharti">
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 2: DIGITAL BUSINESS CARD -->
+    <div id="contact-tab" class="tab-content">
+        <div class="vcard-container">
+            <img src="sgpp.png" alt="Surinder Gharti" class="vcard-avatar">
+            <h2 class="vcard-name">Surinder Gharti</h2>
+            <p class="vcard-title">F&B Department | Kempinski UAE</p>
+
+            <div class="vcard-details">
+                <div class="vcard-field">
+                    <i class="fas fa-user-tag"></i>
+                    <div>
+                        <span>Designation</span>
+                        <p>F&B Associate / BHM Student</p>
+                    </div>
+                </div>
+                <div class="vcard-field">
+                    <i class="fas fa-building"></i>
+                    <div>
+                        <span>Organization</span>
+                        <p>Kempinski UAE</p>
+                    </div>
+                </div>
+                <div class="vcard-field">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <span>Email Address</span>
+                        <a href="mailto:gharti7152914@gmail.com">gharti7152914@gmail.com</a>
+                    </div>
+                </div>
+                <div class="vcard-field">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>
+                        <span>Education</span>
+                        <p>Bachelor of Hotel Management (BHM)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Button triggers mobile-compatible vCard generation -->
+            <button class="download-btn" onclick="downloadVCard()">
+                <i class="fas fa-address-card"></i> Save to Contacts (.vcf)
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Tab Switcher Script
+        function switchTab(tabId, element) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            element.classList.add('active');
+        }
+
+        // Cross-platform iOS/Android vCard generator
+        function downloadVCard() {
+            const vCardData = 
+`BEGIN:VCARD
+VERSION:3.0
+N:Gharti;Surinder;;;
+FN:Surinder Gharti
+ORG:Kempinski UAE
+TITLE:F&B Department - Hospitality (BHM Student)
+EMAIL;TYPE=INTERNET,HOME:gharti7152914@gmail.com
+END:VCARD`;
+
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            
+            link.href = url;
+            link.setAttribute('download', 'Surinder_Gharti.vcf');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
