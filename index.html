@@ -114,7 +114,7 @@
 
         .hero-text {
             flex: 1;
-            max-width: 580px;
+            max-width: 480px; /* Constrained to stay inside white section */
             z-index: 2;
         }
 
@@ -173,6 +173,7 @@
             font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 1.8rem;
+            max-width: 450px; /* Keeps paragraph neatly inside the white area */
         }
 
         .cta-group {
@@ -229,7 +230,7 @@
             position: absolute;
             right: -100px;
             top: -120px;
-            width: 45vw;
+            width: 40vw; /* Slightly adjusted block width for better text spacing */
             height: 120%;
             background-color: var(--blue-block);
             z-index: 1;
@@ -499,6 +500,10 @@
 
             .blue-bg-block {
                 display: none;
+            }
+
+            .hero-text, .summary-paragraph {
+                max-width: 100%;
             }
         }
     </style>
